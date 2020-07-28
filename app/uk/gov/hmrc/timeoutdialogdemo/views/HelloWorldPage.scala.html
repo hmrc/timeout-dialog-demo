@@ -1,0 +1,10 @@
+@import uk.gov.hmrc.timeoutdialogdemo.config.AppConfig
+
+@this(layout: Layout)
+
+@()(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+
+@layout(pageTitle = Some("timeout-dialog-demo")) {
+    <h1 class="govuk-heading-xl">timeout-dialog-demo</h1>
+    <p class="govuk-body">@{messages("service.text")}</p>
+}
