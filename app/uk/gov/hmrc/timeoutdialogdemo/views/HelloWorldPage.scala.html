@@ -16,11 +16,20 @@
 
 @import uk.gov.hmrc.timeoutdialogdemo.config.AppConfig
 
-@this(layout: Layout)
+@this(layout: Layout, hmrcTimeoutDialog: HmrcTimeoutDialog)
 
 @()(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @layout(pageTitle = Some("timeout-dialog-demo")) {
     <h1 class="govuk-heading-xl">timeout-dialog-demo</h1>
     <p class="govuk-body">@{messages("service.text")}</p>
+    @* This is invalid but I'm trying to keep the example simple - this should really be part of the <head> element*@
+    @hmrcTimeoutDialog(TimeoutDialog(
+     name="abc",
+     timeout= Some(70),
+     countdown= Some(68),
+     keepAliveUrl= Some("/"),
+     signOutUrl= Some("/sign-out"),
+     language= Some("en")
+    ))
 }
